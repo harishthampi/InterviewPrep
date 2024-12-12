@@ -1,0 +1,113 @@
+1.var vs let vs const
+
+var is functional scope
+let and const is block scope
+
+{
+    var a = 5
+}
+console.log(a) // 5
+
+{
+    let a = 5
+}
+console.log(a) //a is not defined
+
+{
+    let a = 5
+    console.log(a) //5
+}
+
+{
+    const a = 5
+}
+console.log(a) //a is not defined
+
+{
+    const a = 5
+    console.log(a) //5
+}
+
+2.Variable shadowing
+
+function test(){
+    let a = 'Hello'
+    if(true){
+        let a = 'Hi'
+        console.log(a)//Hi
+    }
+    console.log(a) //Hello
+}
+
+function test(){
+    var a = 'Hello'
+    let b = 'Goodbye'
+    
+    if(true){
+        let a = 'Hello'
+        var b = 'Goodbye' //illegal shadowing error
+        console.log(a)
+        console.log(b)
+    }
+
+}
+a var can be showed using a let about cannot do wise versa
+
+3.Declaration
+
+var we can be redeclared multiple times
+var a;
+var a;
+let and const cannot be redeclared
+let a;
+let a; //a already declared
+const a;
+const a;//missing initializer in const Declaration
+
+4.Declaration without initialisation
+var a;//no error
+let b;//no error
+const c;//error -missing initializer in const Declaration
+const c=10; //no error
+let and var can be declared without initialisation 
+but const cannot 
+
+5.Reinitialisation
+
+var a = 5;
+a = 6;
+//no eeror
+let a = 5;
+a = 6;
+//no error
+const a = 5 ;
+a = 6; //assigment to constant Variable
+
+var and let can be Reinitialisationor updated but const cannot be
+
+6.Hoisting
+during creation phase javascript engines moves the declaration of variable on the to of the code
+
+console.log(count);
+var count = 1; //undefined
+
+how javascript will make this code
+
+var count;
+console.log(count);
+count=1;
+
+console.log(count);
+let count = 1; //cannot acess 'count before initialisation
+let and const is Hoisted to TDZ (TDZ is the area where the a variable exists but it cannot be accessed until it is not declared)
+
+
+*Map,Filter,Reduce*
+
+7.Map - creating a new array from existing one applying function to each one of the element of array
+filter - takes each element in an array and apply a condition if the condition is true element gets pushed to output array 
+reduce - reduces an array of values down to one values
+
+8.Polyfills of map,filter,reduce
+
+9.
